@@ -38,11 +38,11 @@ import imtools
 # im_resized= imtools.imresize(im, uint16)
 
 im = array(Image.open('empire.jpg'))
-
-imx = np.zeros(im.shape,dtype=np.float64)
-filters.sobel(im,1,imx)
-imy = np.zeros(im.shape,dtype=np.float64)
-filters.sobel(im,0,imy)
+sigma = 5
+imx = np.zeros(im.shape)
+filters.gaussian_filter(im,(sigma,sigma),(1,0),imx)
+imy = np.zeros(im.shape)
+filters.gaussian_filter(im,(sigma,sigma),(1,0),imy)
 # imy = zeros(im.shape)
 # filters.gaussian_filter(im,(sigma,sigma),(1,0),imy)
 
